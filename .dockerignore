@@ -1,0 +1,2 @@
+#excluding node_modules folder from docker daemon build context
+*/node_modules
