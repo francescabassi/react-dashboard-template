@@ -50,7 +50,8 @@ class Login extends Component {
             type="password"
             placeholder="Password"
           />
-          <button type="submit" disabled={pristine || submitting}>
+          <button type="submit" disabled={pristine || submitting}
+            className={styles.link}>
             Submit
           </button>
         </form>

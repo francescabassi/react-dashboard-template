@@ -23,8 +23,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '../src/react')
+        ],
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
@@ -32,6 +35,24 @@ module.exports = {
                 modules: true,
                 importLoaders: 2,
                 localIdentName: '[folder]__[local]___[hash:base64:5]'
+              }
+            },
+            'sass-loader' 
+          ]
+        })
+      },
+      {
+        test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '../src/styles')
+        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
               }
             },
             'sass-loader' 
