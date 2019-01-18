@@ -1,6 +1,6 @@
 FROM node:latest
 
-LABEL Name=vaultie-site Version=0.0.1
+LABEL Name=react-dashboard-template Version=0.0.1
 
 EXPOSE 8080
 
