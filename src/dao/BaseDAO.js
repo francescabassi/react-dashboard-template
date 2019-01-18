@@ -1,5 +1,8 @@
 import AuthService from 'services/AuthService'
-import _ from 'underscore'
+import _defaults from 'lodash/defaults'
+import _extend from 'lodash/extend'
+
+
 
 class BaseDAO {
   defaults = {
@@ -13,7 +16,7 @@ class BaseDAO {
   }
 
   constructor(props) {
-    this.defaults = _.defaults(props, this.defaults)
+    this.defaults = _defaults(props, this.defaults)
   }
 
   joinUrl(...parts) {
@@ -26,8 +29,8 @@ class BaseDAO {
 
   // eslint-disable-next-line
   apiRequest = async (props) => {
-    props = _.extend(props, this.defaults); // eslint-disable-line no-param-reassign
-    try {
+    props = _extend(props, this.defaults); // eslint-disable-line no-param-reassign
+    try {lo
       if (props.authorize) {
         props.headers = Object.assign(props.headers, {
           'authorization': `Bearer ${AuthService.getToken()}`
